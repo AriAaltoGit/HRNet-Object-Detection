@@ -114,7 +114,7 @@ def _non_dist_train(model, dataset, cfg, validate=False):
     ]
     # put model on gpus
     model = MMDataParallel(model, device_ids=range(cfg.gpus)).cuda()
-    optimizer = optim.SGD(model,lr=0.01, momentum=0.9, weight_decay=0.0001)
+    optimizer = torch.optim.SGD(model,lr=0.01, momentum=0.9, weight_decay=0.0001)
     # build runner
     runner = Runner(model, batch_processor, cfg.optimizer, cfg.work_dir,
                     cfg.log_level)
