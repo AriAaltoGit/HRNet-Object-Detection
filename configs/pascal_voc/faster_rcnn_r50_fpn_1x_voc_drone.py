@@ -102,7 +102,7 @@ data = dict(
             ann_file=[
                 data_root + 'ImageSets/Main/person_train.txt'
             ],
-            img_prefix=[data_root + 'JPEGImages/'],
+            img_prefix=['JPEGImages/'],
             img_scale=(1000, 600),
             img_norm_cfg=img_norm_cfg,
             size_divisor=32,
