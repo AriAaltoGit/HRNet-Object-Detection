@@ -1,3 +1,4 @@
+
 import argparse
 
 import torch
@@ -91,14 +92,15 @@ def main():
         model_args = cfg.model.copy()
         model_args.update(train_cfg=None, test_cfg=cfg.test_cfg)
         model_type = getattr(detectors, model_args.pop('type'))
-        outputs = parallel_test(
-            model_type,
-            model_args,
-            args.checkpoint,
-            dataset,
-            _data_func,
-            range(args.gpus),
-            workers_per_gpu=args.proc_per_gpu)
+        outputs = single_test(model, data_loader, args.show)
+        # parallel_test(
+        #     model_type,
+        #     model_args,
+        #     args.checkpoint,
+        #     dataset,
+        #     _data_func,
+        #     range(args.gpus),
+        #     workers_per_gpu=args.proc_per_gpu)
 
     if args.out:
         print('writing results to {}'.format(args.out))
