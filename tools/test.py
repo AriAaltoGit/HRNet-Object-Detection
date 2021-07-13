@@ -3,7 +3,7 @@ import argparse
 
 import torch
 import mmcv
-from mmcv.runner import load_checkpoint, parallel_test, obj_from_dict
+from mmcv.runner import load_checkpoint, obj_from_dict
 from mmcv.parallel import scatter, collate, MMDataParallel
 
 from mmdet import datasets
