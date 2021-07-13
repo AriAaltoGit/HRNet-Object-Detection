@@ -175,6 +175,7 @@ def expand_binary_labels(labels, label_weights, label_channels):
 def anchor_inside_flags(flat_anchors, valid_flags, img_shape,
                         allowed_border=0):
     img_h, img_w = img_shape[:2]
+    print(flat_anchors)
     if allowed_border >= 0:
         inside_flags = valid_flags & \
             (flat_anchors[:, 0] >= -allowed_border) & \
