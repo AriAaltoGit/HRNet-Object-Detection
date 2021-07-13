@@ -178,10 +178,10 @@ def anchor_inside_flags(flat_anchors, valid_flags, img_shape,
     print(flat_anchors)
     if allowed_border >= 0:
         inside_flags = valid_flags & \
-            (flat_anchors[:, 0] >= -allowed_border) & \
-            (flat_anchors[:, 1] >= -allowed_border) #& \
-            #(flat_anchors[:, 2] < img_w + allowed_border) & \
-            #(flat_anchors[:, 3] < img_h + allowed_border)
+            torch.tensor(flat_anchors[:, 0] >= -allowed_border, dtype=torch.uint8).to("gpu") & \
+            torch.tensor(flat_anchors[:, 1] >= -allowed_border, dtype=torch.uint8).to("gpu") & \
+            torch.tensor(flat_anchors[:, 2] < img_w + allowed_border, dtype=torch.uint8).to("gpu") & \
+            torch.tensor(flat_anchors[:, 3] < img_h + allowed_border, dtype=torch.uint8).to("gpu")
     else:
         inside_flags = valid_flags
     return inside_flags
