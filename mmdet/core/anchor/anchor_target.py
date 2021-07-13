@@ -178,10 +178,10 @@ def anchor_inside_flags(flat_anchors, valid_flags, img_shape,
 
     if allowed_border >= 0:
         inside_flags = valid_flags & \
-            torch.tensor(flat_anchors[:, 0] >= -allowed_border, dtype=torch.uint8).bool().to("cuda") & \
-            torch.tensor(flat_anchors[:, 1] >= -allowed_border, dtype=torch.uint8).bool().to("cuda") & \
-            torch.tensor(flat_anchors[:, 2] < img_w + allowed_border, dtype=torch.uint8).bool().to("cuda") & \
-            torch.tensor(flat_anchors[:, 3] < img_h + allowed_border, dtype=torch.uint8).bool().to("cuda")
+            torch.tensor(flat_anchors[:, 0] >= -allowed_border, dtype=torch.uint8).to("cuda") & \
+            torch.tensor(flat_anchors[:, 1] >= -allowed_border, dtype=torch.uint8).to("cuda") & \
+            torch.tensor(flat_anchors[:, 2] < img_w + allowed_border, dtype=torch.uint8).to("cuda") & \
+            torch.tensor(flat_anchors[:, 3] < img_h + allowed_border, dtype=torch.uint8).to("cuda")
     else:
         inside_flags = valid_flags
     return inside_flags
