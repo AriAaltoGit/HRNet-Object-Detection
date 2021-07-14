@@ -12,7 +12,9 @@ class XMLDataset(CustomDataset):
     def __init__(self, **kwargs):
         super(XMLDataset, self).__init__(**kwargs)
         self.cat2label = {cat: i + 1 for i, cat in enumerate(self.CLASSES)}
-
+        print("XML Classes:")
+        print(self.CLASSES)
+        print(self.cat2label)
     def load_annotations(self, ann_file):
         img_infos = []
         img_ids = mmcv.list_from_file(ann_file)
