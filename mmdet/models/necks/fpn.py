@@ -104,10 +104,6 @@ class FPN(nn.Module):
         # build top-down path
         used_backbone_levels = len(laterals)
         for i in range(used_backbone_levels - 1, 0, -1):
-            inter = F.interpolate(
-                laterals[i], scale_factor=2.0, mode='bicubic')
-            print("inter: ")
-            print(inter.size())
             laterals[i - 1] += F.interpolate(
                 laterals[i], scale_factor=2.0, mode='bicubic')
 
