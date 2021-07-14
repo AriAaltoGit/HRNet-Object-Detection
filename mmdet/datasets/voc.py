@@ -3,7 +3,7 @@ from .xml_style import XMLDataset
 
 class VOCDataset(XMLDataset):
 
-    CLASSES = ('person') #, 'tent', 'ship', 'car', 'bus', 'pole')
+    CLASSES = ('person',) #, 'tent', 'ship', 'car', 'bus', 'pole')
     #'aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car',
      #          'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse',
       #         'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train',
