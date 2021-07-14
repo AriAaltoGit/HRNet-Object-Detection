@@ -43,21 +43,22 @@ class XMLDataset(CustomDataset):
         labels_ignore = []
         for obj in root.findall('object'):
             name = obj.find('name').text
-            label = self.cat2label[name]
-            difficult = int(obj.find('difficult').text)
-            bnd_box = obj.find('bndbox')
-            bbox = [
-                int(bnd_box.find('xmin').text),
-                int(bnd_box.find('ymin').text),
-                int(bnd_box.find('xmax').text),
-                int(bnd_box.find('ymax').text)
-            ]
-            if difficult:
-                bboxes_ignore.append(bbox)
-                labels_ignore.append(label)
-            else:
-                bboxes.append(bbox)
-                labels.append(label)
+            if name == 'person':
+                label = self.cat2label[name]
+                difficult = int(obj.find('difficult').text)
+                bnd_box = obj.find('bndbox')
+                bbox = [
+                    int(bnd_box.find('xmin').text),
+                    int(bnd_box.find('ymin').text),
+                    int(bnd_box.find('xmax').text),
+                    int(bnd_box.find('ymax').text)
+                ]
+                if difficult:
+                    bboxes_ignore.append(bbox)
+                    labels_ignore.append(label)
+                else:
+                    bboxes.append(bbox)
+                    labels.append(label)
         if not bboxes:
             bboxes = np.zeros((0, 4))
             labels = np.zeros((0, ))
