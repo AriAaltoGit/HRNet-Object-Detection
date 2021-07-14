@@ -35,7 +35,7 @@ model = dict(
         in_channels=256,
         fc_out_channels=1024,
         roi_feat_size=7,
-        num_classes=21,
+        num_classes=7,
         target_means=[0., 0., 0., 0.],
         target_stds=[0.1, 0.1, 0.2, 0.2],
         reg_class_agnostic=False))
@@ -80,7 +80,7 @@ test_cfg = dict(
         nms_post=2000,
         max_num=2000,
         nms_thr=0.7,
-        min_bbox_size=0),
+        min_bbox_size=15),
     rcnn=dict(
         score_thr=0.05, nms=dict(type='nms', iou_thr=0.5), max_per_img=100)
     # soft-nms is also supported for rcnn testing
@@ -103,10 +103,10 @@ data = dict(
                 data_root + 'ImageSets/Main/person_train.txt'
             ],
             img_prefix=[data_root],
-            img_scale=(1000, 600),
+            img_scale=(3800, 800),
             img_norm_cfg=img_norm_cfg,
-            size_divisor=32,
-            flip_ratio=0.5,
+            size_divisor=1,
+            flip_ratio=0,
             with_mask=False,
             with_crowd=False,
             with_label=True)),
@@ -136,13 +136,13 @@ data = dict(
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
-#lr_config = dict(policy='step', step=[3])  # actual epoch = 3 * 3 = 9
-lr_config = dict(
-    policy='step',
-    warmup='linear',
-    warmup_iters=500,
-    warmup_ratio=1.0 / 3,
-    step=[8, 11])
+lr_config = dict(policy='step', step=[3])  # actual epoch = 3 * 3 = 9
+#lr_config = dict(
+#    policy='step',
+#    warmup='linear',
+#    warmup_iters=500,
+#    warmup_ratio=1.0 / 3,
+#    step=[8, 11])
 checkpoint_config = dict(interval=10)
 # yapf:disable
 log_config = dict(
