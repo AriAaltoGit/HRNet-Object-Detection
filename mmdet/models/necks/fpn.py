@@ -107,7 +107,7 @@ class FPN(nn.Module):
             inter = F.interpolate(
                 laterals[i], scale_factor=2, mode='nearest')
             print("inter: ")
-            print(inter)
+            print(inter.size())
             laterals[i - 1] += F.interpolate(
                 laterals[i], scale_factor=2, mode='nearest')
 
