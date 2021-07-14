@@ -35,7 +35,7 @@ model = dict(
         in_channels=256,
         fc_out_channels=1024,
         roi_feat_size=7,
-        num_classes=3,
+        num_classes=2,
         target_means=[0., 0., 0., 0.],
         target_stds=[0.1, 0.1, 0.2, 0.2],
         reg_class_agnostic=False))
@@ -103,7 +103,7 @@ data = dict(
                 data_root + 'ImageSets/Main/person_train.txt'
             ],
             img_prefix=[data_root],
-            img_scale=(3600,),
+            img_scale=(3602,),
             img_norm_cfg=img_norm_cfg,
             size_divisor=1,
             flip_ratio=0,
