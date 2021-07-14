@@ -93,7 +93,7 @@ img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 data = dict(
     imgs_per_gpu=1,
-    workers_per_gpu=1,
+    workers_per_gpu=2,
     train=dict(
         type='RepeatDataset',  # to avoid reloading datasets frequently
         times=3,
@@ -103,7 +103,7 @@ data = dict(
                 data_root + 'ImageSets/Main/person_train.txt'
             ],
             img_prefix=[data_root],
-            img_scale=(3600,),
+            img_scale=(2048,),
             img_norm_cfg=img_norm_cfg,
             size_divisor=32,
             flip_ratio=0,
