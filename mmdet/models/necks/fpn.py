@@ -105,7 +105,7 @@ class FPN(nn.Module):
         used_backbone_levels = len(laterals)
         for i in range(used_backbone_levels - 1, 0, -1):
             inter = F.interpolate(
-                laterals[i], size=(2, 256, 120, 226), mode='bicubic')
+                laterals[i], size=(2, 256, 120, 226), mode='nearest')
             print("inter: ")
             print(inter.size())
             laterals[i - 1] += F.interpolate(
