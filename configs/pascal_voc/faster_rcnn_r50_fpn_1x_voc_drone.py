@@ -159,4 +159,4 @@ log_level = 'INFO'
 work_dir = './work_dirs/faster_rcnn_r50_fpn_1x_drone'
 load_from = None
 resume_from = None
-workflow = [('train', 1), ('val', 1)] #[('train', 1)]
+workflow = [('train', 1), ('val', 2)] #[('train', 1)]
