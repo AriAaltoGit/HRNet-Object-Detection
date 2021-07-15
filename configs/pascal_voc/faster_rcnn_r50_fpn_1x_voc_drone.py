@@ -7,7 +7,7 @@ model = dict(
         depth=50,
         num_stages=4,
         out_indices=(0, 1, 2, 3),
-        frozen_stages=1,
+        frozen_stages=-1,
         style='pytorch'),
     neck=dict(
         type='FPN',
@@ -136,7 +136,7 @@ data = dict(
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
-lr_config = dict(policy='step', step=[3])  # actual epoch = 3 * 3 = 9
+lr_config = dict(policy='step', step=[30])  # actual epoch = 3 * 3 = 9
 #lr_config = dict(
 #    policy='step',
 #    warmup='linear',
@@ -153,10 +153,10 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-total_epochs = 100  # actual epoch = 4 * 3 = 12
+total_epochs = 10  # actual epoch = 4 * 3 = 12
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dirs/faster_rcnn_r50_fpn_1x_drone'
 load_from = None
 resume_from = None
-workflow = [('train', 1)]
+workflow = [('train', 2), ('val', 1)] #[('train', 1)]
