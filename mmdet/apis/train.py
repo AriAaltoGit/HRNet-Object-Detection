@@ -102,8 +102,6 @@ def _dist_train(model, dataset, cfg, validate=False):
         runner.resume(cfg.resume_from)
     elif cfg.load_from:
         runner.load_checkpoint(cfg.load_from)
-    print("data_loaders")
-    print(data_loaders)
     runner.run(data_loaders, cfg.workflow, cfg.total_epochs)
 
 
@@ -130,4 +128,6 @@ def _non_dist_train(model, dataset, cfg, validate=False):
         runner.resume(cfg.resume_from)
     elif cfg.load_from:
         runner.load_checkpoint(cfg.load_from)
+    print("data_loaders")
+    print(data_loaders)
     runner.run(data_loaders, cfg.workflow, cfg.total_epochs)
