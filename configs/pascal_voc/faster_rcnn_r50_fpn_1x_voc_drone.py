@@ -153,10 +153,10 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-total_epochs = 10  # actual epoch = 4 * 3 = 12
+total_epochs = 30  # actual epoch = 4 * 3 = 12
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './work_dirs/faster_rcnn_r50_fpn_1x_drone'
+work_dir = './drone/faster_rcnn_r50_fpn_1x_drone'
 load_from = None
-resume_from = None
+resume_from = '/data/mnist/data_drive/HRNet-drone'
 workflow = [('train', 10)] #[('train', 1)]
