@@ -157,6 +157,6 @@ total_epochs = 30  # actual epoch = 4 * 3 = 12
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './drone/faster_rcnn_r50_fpn_1x_drone'
-load_from = '/data/mnist/data_drive/HRNet-drone/latest.pth'
+load_from = None #'/data/mnist/data_drive/HRNet-drone/latest.pth'
 resume_from = None
 workflow = [('train', 10)] #[('train', 1)]
