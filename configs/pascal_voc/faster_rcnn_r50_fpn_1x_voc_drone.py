@@ -8,7 +8,7 @@ model = dict(
         num_stages=4,
         strides=(1, 1, 1, 1),
         dilations=(1, 1, 1, 1),
-        out_indices=(3,),#(0, 1, 2, 3),
+        out_indices=(2,),#(0, 1, 2, 3),
         frozen_stages=-1,
         style='pytorch'),
     neck=dict(
@@ -95,7 +95,7 @@ img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 data = dict(
     imgs_per_gpu=1,
-    workers_per_gpu=1,
+    workers_per_gpu=2,
     train=dict(
         type='RepeatDataset',  # to avoid reloading datasets frequently
         times=3,
