@@ -93,9 +93,9 @@ class FPN(nn.Module):
                 xavier_init(m, distribution='uniform')
 
     def forward(self, inputs):
-        print("fpn: ")
-        print(len(inputs))
-        print(len(self.in_channels))
+        # print("fpn: ")
+        # print(len(inputs))
+        # print(len(self.in_channels))
         assert len(inputs) == len(self.in_channels)
 
         # build laterals
