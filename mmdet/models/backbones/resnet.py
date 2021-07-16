@@ -333,6 +333,8 @@ class ResNet(nn.Module):
         assert num_stages >= 1 and num_stages <= 4
         self.strides = strides
         self.dilations = dilations
+        print("resnet")
+        print(str(len(strides))+ " "+ str(len(dilations))+" "+ str(num_stages))
         assert len(strides) == len(dilations) == num_stages
         self.out_indices = out_indices
         assert max(out_indices) < num_stages
