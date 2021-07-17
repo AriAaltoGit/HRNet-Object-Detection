@@ -1,5 +1,5 @@
 import pandas as pd
-object = pd.read_pickle(r'drone/result.pkl')
+object = pd.read_pickle(r'../data_drive/HRNet-drone/result.pkl')
 print(object)
 
 
