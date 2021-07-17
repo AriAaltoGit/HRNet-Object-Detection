@@ -8,7 +8,7 @@ model = dict(
         num_stages=3,
         strides=(1, 2, 2),
         dilations=(1, 1, 1),
-        out_indices=(2,),#(0, 1, 2, 3),
+        out_indices=(1, 2,),#(0, 1, 2, 3),
         frozen_stages=-1,
         style='pytorch'),
     neck=dict(
@@ -105,7 +105,7 @@ data = dict(
                 data_root + 'ImageSets/Main/person_train.txt'
             ],
             img_prefix=[data_root],
-            img_scale=(2048,),
+            img_scale=(1024,),
             img_norm_cfg=img_norm_cfg,
             size_divisor=32,
             flip_ratio=0,
@@ -138,7 +138,7 @@ data = dict(
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
-lr_config = dict(policy='step', step=[30])  # actual epoch = 3 * 3 = 9
+lr_config = dict(policy='step', step=[100])  # actual epoch = 3 * 3 = 9
 #lr_config = dict(
 #    policy='step',
 #    warmup='linear',
