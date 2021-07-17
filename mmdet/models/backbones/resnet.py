@@ -210,8 +210,8 @@ class Bottleneck(nn.Module):
             out = self.conv3(out)
             out = self.norm3(out)
 
-            if self.downsample is not None:
-                identity = self.downsample(x)
+            #if self.downsample is not None:
+            #    identity = self.downsample(x)
 
             out += identity
 
