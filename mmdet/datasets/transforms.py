@@ -37,6 +37,7 @@ class ImageTransform(object):
                                     dtype=np.float32)
         img_shape = img.shape
         img = mmcv.imnormalize(img, self.mean, self.std, self.to_rgb)
+        print("before flip")
         if flip:
             img = mmcv.imflip(img)
         if self.size_divisor is not None:
