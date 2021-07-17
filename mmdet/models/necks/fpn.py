@@ -98,7 +98,7 @@ class FPN(nn.Module):
         print(len(self.in_channels))
         for inps in inputs:
             print(inps.size()
-        print("..")
+        print("------")
         assert len(inputs) == len(self.in_channels)
 
         # build laterals
