@@ -239,6 +239,13 @@ def make_res_layer(block,
                    normalize=dict(type='BN'),
                    dcn=None):
     downsample = None
+    print("resnet inplanes:")
+    print(inplanes != planes * block.expansion)
+    print(inplanes)
+    print(planes)
+    print(block.expansion)
+
+
     if stride != 1 or inplanes != planes * block.expansion:
         downsample = nn.Sequential(
             nn.Conv2d(
