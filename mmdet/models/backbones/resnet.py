@@ -187,7 +187,6 @@ class Bottleneck(nn.Module):
         return getattr(self, self.norm3_name)
 
     def forward(self, x):
-        print(x.size())
         def _inner_forward(x):
             identity = x
 
