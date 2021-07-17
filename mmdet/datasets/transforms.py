@@ -26,6 +26,8 @@ class ImageTransform(object):
         self.size_divisor = size_divisor
 
     def __call__(self, img, scale, flip=False, keep_ratio=True):
+        print("transform:")
+        print(scale)
         if keep_ratio:
             img, scale_factor = mmcv.imrescale(img, scale, return_scale=True)
         else:
