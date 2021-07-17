@@ -72,9 +72,13 @@ class TwoStageDetector(BaseDetector, RPNTestMixin, BBoxTestMixin,
             self.mask_head.init_weights()
 
     def extract_feat(self, img):
+        prin("extract_feat")
         x = self.backbone(img)
+        print(x)
         if self.with_neck:
             x = self.neck(x)
+        print(self.with_neck)
+        print(x)
         return x
 
     def forward_train(self,
