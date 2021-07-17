@@ -175,7 +175,6 @@ def expand_binary_labels(labels, label_weights, label_channels):
 def anchor_inside_flags(flat_anchors, valid_flags, img_shape,
                         allowed_border=0):
     img_h, img_w = img_shape[:2]
-
     if allowed_border >= 0:
         inside_flags = valid_flags & \
             torch.tensor(flat_anchors[:, 0] >= -allowed_border, dtype=torch.uint8).to("cuda") & \
