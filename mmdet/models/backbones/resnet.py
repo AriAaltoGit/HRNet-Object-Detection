@@ -246,7 +246,7 @@ def make_res_layer(block,
     print(block.expansion)
 
 
-    if stride != 1 or inplanes != planes * block.expansion:
+    if stride != 1 : #or inplanes != planes * block.expansion:
         downsample = nn.Sequential(
             nn.Conv2d(
                 inplanes,
