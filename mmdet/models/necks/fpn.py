@@ -96,8 +96,9 @@ class FPN(nn.Module):
         print("fpn: ")
         print(len(inputs))
         print(len(self.in_channels))
-        #for inps in inputs:
-            #print(inps.size())
+        for inps in inputs:
+            print(inps.size()
+        print("..")
         assert len(inputs) == len(self.in_channels)
 
         # build laterals
