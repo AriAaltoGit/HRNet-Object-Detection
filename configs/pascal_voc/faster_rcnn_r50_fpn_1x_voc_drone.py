@@ -29,12 +29,12 @@ model = dict(
     bbox_roi_extractor=dict(
         type='SingleRoIExtractor',
         roi_layer=dict(type='RoIAlign', out_size=7, sample_num=2),
-        out_channels=256,
+        out_channels=512,
         featmap_strides=[4, 8, 16, 32]),
     bbox_head=dict(
         type='SharedFCBBoxHead',
         num_fcs=2,
-        in_channels=256,
+        in_channels=512,
         fc_out_channels=1024,
         roi_feat_size=7,
         num_classes=2,
