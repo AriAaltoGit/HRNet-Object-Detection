@@ -46,6 +46,7 @@ class ImageTransform(object):
             pad_shape = img_shape
         img = img.transpose(2, 0, 1)
         print(scale_factor)
+        print(img_shape)
         return img, img_shape, pad_shape, scale_factor
 
 
