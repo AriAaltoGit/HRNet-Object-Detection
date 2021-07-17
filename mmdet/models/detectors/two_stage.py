@@ -80,7 +80,6 @@ class TwoStageDetector(BaseDetector, RPNTestMixin, BBoxTestMixin,
         if self.with_neck:
             x = self.neck(x)
         print("X")
-        print(x)
         return x
 
     def forward_train(self,
